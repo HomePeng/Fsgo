@@ -31,4 +31,3 @@ if done == "签到":
 d.xpath('//*[@text="12:04 签退"]').get_text()
 
 
-

@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7de360b8-155d-4e2f-87e4-c914f93c58d4" name="Default Changelist" comment="" />
+    <list default="true" id="7de360b8-155d-4e2f-87e4-c914f93c58d4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/Fsgo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Fsgo.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uitest.py" beforeDir="false" afterPath="$PROJECT_DIR$/uitest.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,7 +22,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -42,6 +47,8 @@
       <option name="presentableId" value="Default" />
       <updated>1570842031949</updated>
       <workItem from="1570842034003" duration="261000" />
+      <workItem from="1570888022836" duration="1760000" />
+      <workItem from="1570889809278" duration="237000" />
     </task>
     <servers />
   </component>
@@ -53,7 +60,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
