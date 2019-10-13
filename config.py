@@ -1,8 +1,8 @@
 import os
 
-pck_name = "com.fenqile"
-lanuch_activity = "com.fenqile.fenqile"
-device_name = "192.168.1.4"
+pck_name = "com.facishare.fs"
+lanuch_activity = "com.facishare.fs"
+device_name = "192.168.3.27"
 wait_timeout = 15
 click_post_delay = 0.5
 lanuch_time = 5

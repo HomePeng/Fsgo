@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import os, sys, subprocess, pytest, time #allure
 import base64
-from Fsgo.driver import Driver
+from driver import Driver
 from config import *
 
 sys.path.append('..')
@@ -25,7 +25,7 @@ def driver_setup(request):
     def driver_teardown():
         logger.info("自动化测试结束!")
         request.instance.driver.app_stop(lanuch_activity)
-        request.instance.driver.app_clear(lanuch_activity)
+        # request.instance.driver.app_clear(lanuch_activity)
 
     request.addfinalizer(driver_teardown)
 
