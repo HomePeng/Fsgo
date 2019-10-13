@@ -1,15 +1,24 @@
 # -*- coding: utf-8 -*-
-import os, sys, subprocess, pytest, time #allure
+
+
+import os, sys, subprocess, pytest, time  # allure
 import base64
+import smtplib
+
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+from email.mime.image import MIMEImage
 from driver import Driver
 from config import *
 
-sys.path.append('..')
+# sys.path.append('..')
 from tools.loggers import JFMlogging
 
 logger = JFMlogging().getloger()
 
 driver = Driver().init_driver(device_name)
+
+
 # 当设置autouse为True时,
 # 在一个session内的所有的test都会自动调用这个fixture
 @pytest.fixture()
@@ -59,9 +68,6 @@ def pytest_runtest_makereport(item, call):
         #     allure.attach("失败截图", pic_info, allure.attach_type.JPG)
 
 
-
-
-
 def allow(driver):
     driver.watcher("允许").when(text="允许").click(text="允许")
     driver.watcher("跳过").when(text="跳过").click(text="跳过")
@@ -80,7 +86,7 @@ def screen_shot(driver):
         pic_name = os.path.join(screenshot_folder, fail_pic)
         driver.screenshot(pic_name)
         logger.info('截图:{}'.format(pic_name))
-        with open(pic_name, 'rb') as f: # 二进制方式打开图文件
+        with open(pic_name, 'rb') as f:  # 二进制方式打开图文件
             file_info = f.read()
         return file_info
         # base64_str = base64.b64encode(f.read())  # 读取文件内容，转换为base64编码
@@ -106,3 +112,57 @@ def adb_screen_shot():
     with open(pic_name, 'rb') as r:
         file_info = r.read()
     return file_info
+
+
+def set_email(pic_info):
+    mail_host = 'smtp.qq.com'
+    # qq用户名
+    mail_user = '767736892'
+    # 密码(部分邮箱为授权码)
+    mail_pass = 'iehskkezhskbbbif'
+    # 邮件发送方邮箱地址
+    sender = '767736892@qq.com'
+    # 邮件接受方邮箱地址，注意需要[]包裹，这意味着你可以写多个邮件地址群发
+    receivers = ['312814497@qq.com']
+
+    # 设置email信息
+    # 邮件内容设置
+    message = MIMEMultipart('related')
+    # 邮件主题
+    message['Subject'] = '打卡提醒'
+    # 发送方信息
+    message['From'] = sender
+    # 接受方信息
+    message['To'] = receivers[0]
+
+    msgAlternative = MIMEMultipart('alternative')
+    message.attach(msgAlternative)
+
+    mail_msg = """
+    <p>自动化打卡测试</p>
+    <p>打卡失败截图：</p>
+    <p><img src="cid:image1"></p>
+    """
+    msgAlternative.attach(MIMEText(mail_msg, 'html', 'utf-8'))
+
+    # 指定图片为当前目录
+    fp = open(pic_info, 'rb')
+    msgImage = MIMEImage(fp.read())
+    fp.close()
+
+    # 定义图片 ID，在 HTML 文本中引用
+    msgImage.add_header('Content-ID', '<image1>')
+    message.attach(msgImage)
+
+
+    # 登录并发送
+    try:
+        smtpObj = smtplib.SMTP()
+        smtpObj.connect(mail_host, 25)
+        smtpObj.login(mail_user, mail_pass)
+        smtpObj.sendmail(
+            sender, receivers, message.as_string())
+        print('success')
+        smtpObj.quit()
+    except smtplib.SMTPException as e:
+        print('error', e)
