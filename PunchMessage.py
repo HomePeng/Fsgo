@@ -12,14 +12,14 @@ def job():
     headers_id = {"ContentType": "application/json"}
 
     data = {
-        "appToken": "AT_3MX3lUh6V5TDZDsHbEJgN67pBeT7ZzUy",
+        "appToken": "***",
         "content": "打卡啦，忘了就等着扣工资啊！！！",
         "contentType": 1,
         # "topicIds": [
         #     1
         # ],
         "uids": [
-            "UID_arvlD7cE2jfTQospVS0p7c610aL8"
+            "***"
         ],
         # "url": "http://wxpusher.zjiecode.com"
     }
