@@ -119,7 +119,7 @@ def set_email(pic_info):
     # qq用户名
     mail_user = '767736892'
     # 密码(部分邮箱为授权码)
-    mail_pass = 'iehskkezhskbbbif'
+    mail_pass = '***'
     # 邮件发送方邮箱地址
     sender = '767736892@qq.com'
     # 邮件接受方邮箱地址，注意需要[]包裹，这意味着你可以写多个邮件地址群发
