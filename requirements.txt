@@ -24,7 +24,7 @@ pathlib2==2.3.3
 Pillow==6.2.0
 pluggy==0.11.0
 progress==1.5
-py==1.8.0
+py==1.10.0
 pyparsing==2.4.2
 pypng==0.0.20
 PyQRCode==1.2.1
